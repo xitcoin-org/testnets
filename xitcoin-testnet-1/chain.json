@@ -13,22 +13,54 @@
   "rpc": [
     "https://rpc-testnet.xitcoin.org"
   ],
+  "api": [
+    "https://api-testnet.xitcoin.org"
+  ],
   "explorers": [
     "https://explorer-testnet.xitcoin.org",
     "https://evm-explorer-testnet.xitcoin.org"
   ],
   "faucets": [
-    "https://faucet-testnet.xitcoin.org"
+    {
+      "url": "https://faucet-testnet.xitcoin.org",
+      "amount_xtc": "10",
+      "address_window_hours": 24,
+      "ip_window_hours": 24,
+      "ip_limit": 3
+    }
   ],
   "genesis": {
     "file": "genesis.json",
-    "sha256": "7d13d7ed6a19ea48e2ce3c408f1f457e0961e72df6dd480d8200a6db5bae8414"
+    "sha256": "55c8756a212b9e92c0e8427ea61caff7fa9dca40e801e4b848f59d1aa5f6dae6",
+    "genesis_time": "2026-08-25T21:48:17.77229Z",
+    "supply_axtc": "457000000000000000000000000",
+    "supply_xtc": "457000000"
+  },
+  "validator_policy": {
+    "initial_validators": 4,
+    "max_validators": 258,
+    "max_approved_validators": 258,
+    "minimum_self_delegation_axtc": "5000000000000000000000000",
+    "minimum_self_delegation_xtc": "5000000"
+  },
+  "allocations": {
+    "sovereign_reserve_xtc": "386000000",
+    "security_reserve_xtc": "960000",
+    "faucet_xtc": "50000000",
+    "validator_self_delegation_total_xtc": "20000000",
+    "validator_liquid_gas_total_xtc": "40000"
+  },
+  "bridge": {
+    "route_configured": false,
+    "status": "disabled",
+    "note": "No separate active bridge allocation or settlement route is configured in this genesis."
   },
   "notes": [
     "The public network name is Xitcoin Testnet.",
     "The technical Cosmos chain ID xitcoin-testnet-1 identifies the current genesis and is not a public version label.",
     "The canonical four-validator testnet is publicly active.",
-    "The coordinated public endpoint cutover was completed on 2026-08-21.",
-    "Testnet assets have no monetary value."
+    "The canonical sentry, validator, public endpoint, explorer, Blockscout and faucet cutover was completed and certified on 2026-08-26.",
+    "Testnet assets have no monetary value.",
+    "The faucet does not mint XTC automatically."
   ]
 }
