@@ -1,6 +1,6 @@
 # Exact false-positive fingerprints for reviewed public genesis fields.
-# Canonical genesis SHA-256:
-# 7d13d7ed6a19ea48e2ce3c408f1f457e0961e72df6dd480d8200a6db5bae8414
+# Active canonical genesis SHA-256:
+# 5db34acf6496b2c76a6f516e0eb605caef6762552584ddbed7c8703239f33d72
 # New or modified findings remain blocked by Gitleaks.
 
 xitcoin-testnet-1/genesis.json:generic-api-key:314

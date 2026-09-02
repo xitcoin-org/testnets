@@ -1,0 +1,80 @@
+name: Validate testnet records
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-records:
+    name: Canonical records
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Verify genesis checksums and manifests
+        run: |
+          set -euo pipefail
+
+          for directory in xitcoin-testnet-*; do
+            (
+              cd "$directory"
+              sha256sum -c genesis.sha256
+            )
+          done
+
+          python3 - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          records = []
+          for directory in sorted(Path(".").glob("xitcoin-testnet-*")):
+              with (directory / "chain.json").open(encoding="utf-8") as handle:
+                  manifest = json.load(handle)
+              with (directory / "genesis.json").open(encoding="utf-8") as handle:
+                  genesis = json.load(handle)
+
+              digest = hashlib.sha256((directory / "genesis.json").read_bytes()).hexdigest()
+              checksum = (directory / "genesis.sha256").read_text(encoding="utf-8").split()[0]
+
+              assert digest == checksum
+              assert digest == manifest["genesis"]["sha256"]
+              assert genesis["chain_id"] == manifest["cosmos_chain_id"]
+              assert genesis["genesis_time"] == manifest["genesis"]["genesis_time"]
+              assert manifest["native_currency"] == {
+                  "name": "Xitcoin",
+                  "symbol": "XTC",
+                  "decimals": 18,
+                  "base_denom": "axtc",
+              }
+              records.append((directory.name, manifest["status"]))
+
+          active = [name for name, status in records if status == "active"]
+          assert active == ["xitcoin-testnet-v2-1"], active
+          assert dict(records)["xitcoin-testnet-1"] == "retired"
+          print("[OK] canonical active record:", active[0])
+          PY
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Scan Git history for secrets
+        uses: docker://ghcr.io/gitleaks/gitleaks:v8.30.0
+        with:
+          args: git --redact --verbose .
