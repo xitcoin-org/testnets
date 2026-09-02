@@ -1,7 +1,7 @@
 {
   "name": "Xitcoin Testnet",
-  "status": "retired",
-  "cosmos_chain_id": "xitcoin-testnet-1",
+  "status": "active",
+  "cosmos_chain_id": "xitcoin-testnet-v2-1",
   "evm_chain_id": 101089,
   "evm_chain_id_hex": "0x18ae1",
   "native_currency": {
@@ -16,6 +16,9 @@
   "api": [
     "https://api-testnet.xitcoin.org"
   ],
+  "evm_rpc": [
+    "https://evm-rpc-testnet.xitcoin.org"
+  ],
   "explorers": [
     "https://explorer-testnet.xitcoin.org",
     "https://evm-explorer-testnet.xitcoin.org"
@@ -23,6 +26,7 @@
   "faucets": [
     {
       "url": "https://faucet-testnet.xitcoin.org",
+      "address": "xtc1c2xvgnshda5mmtvg9us88kq92965v4x20ac4hf",
       "amount_xtc": "10",
       "address_window_hours": 24,
       "ip_window_hours": 24,
@@ -31,10 +35,10 @@
   ],
   "genesis": {
     "file": "genesis.json",
-    "sha256": "55c8756a212b9e92c0e8427ea61caff7fa9dca40e801e4b848f59d1aa5f6dae6",
-    "genesis_time": "2026-08-25T21:48:17.77229Z",
-    "supply_axtc": "457000000000000000000000000",
-    "supply_xtc": "457000000"
+    "sha256": "5db34acf6496b2c76a6f516e0eb605caef6762552584ddbed7c8703239f33d72",
+    "genesis_time": "2026-08-29T09:49:07Z",
+    "supply_axtc": "477000000000000000000000000",
+    "supply_xtc": "477000000"
   },
   "validator_policy": {
     "initial_validators": 4,
@@ -45,19 +49,22 @@
   },
   "allocations": {
     "sovereign_reserve_xtc": "386000000",
-    "security_reserve_xtc": "960000",
     "faucet_xtc": "50000000",
+    "unclassified_reserve_xtc": "20000000",
+    "validator_initial_balance_total_xtc": "21000000",
     "validator_self_delegation_total_xtc": "20000000",
-    "validator_liquid_gas_total_xtc": "40000"
+    "validator_liquid_balance_total_xtc": "1000000"
   },
   "bridge": {
     "route_configured": false,
     "status": "disabled",
-    "note": "No separate active bridge allocation or settlement route is configured in this genesis."
+    "note": "No route configuration exists in genesis; the default paused=false value does not enable a bridge route."
   },
   "notes": [
-    "The xitcoin-testnet-1 network is retired and preserved for historical verification only.",
-    "It is not the active public testnet.",
-    "Testnet assets have no monetary value."
+    "The public network name is Xitcoin Testnet.",
+    "This V2 manifest is the only active public testnet record.",
+    "The four initial validators are Atlas, Borealis, Meridian and Zenith.",
+    "Testnet assets have no monetary value.",
+    "The faucet spends a finite allocation and does not mint XTC automatically."
   ]
 }
