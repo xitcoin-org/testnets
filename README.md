@@ -7,32 +7,30 @@ Canonical genesis and public configuration files for Xitcoin test networks.
 | Parameter | Value |
 | --- | --- |
 | Network | Xitcoin Testnet |
-| Cosmos chain ID | `xitcoin-testnet-1` |
+| Cosmos chain ID | `xitcoin-testnet-v2-1` |
 | EVM chain ID | `101089` (`0x18ae1`) |
 | Native symbol | `XTC` |
 | Base denomination | `axtc` |
 | Decimals | `18` |
-| Genesis supply | `457,000,000 XTC` |
-| Genesis SHA-256 | `55c8756a212b9e92c0e8427ea61caff7fa9dca40e801e4b848f59d1aa5f6dae6` |
+| Genesis supply | `477,000,000 XTC` |
+| Genesis SHA-256 | `5db34acf6496b2c76a6f516e0eb605caef6762552584ddbed7c8703239f33d72` |
 | Initial validators | `4` |
 | Validator capacity | `258` |
 | Minimum self-delegation | `5,000,000 XTC` |
 | Public faucet | `10 XTC` per successful request |
 | Bridge route | Disabled; not configured |
 
-The active network files are stored in [`xitcoin-testnet-1`](./xitcoin-testnet-1).
+The active network files are stored in [`xitcoin-testnet-v2-1`](./xitcoin-testnet-v2-1).
 
-The published genesis is byte-identical to the genesis deployed on the canonical
-sentry and four validators. Verify it with:
+Verify the byte-identical genesis file with:
 
 ```bash
-cd xitcoin-testnet-1
+cd xitcoin-testnet-v2-1
 sha256sum -c genesis.sha256
 ```
 
-The faucet allocation is finite and does not mint XTC automatically. The
-canonical metadata in [`chain.json`](./xitcoin-testnet-1/chain.json) records
-the public endpoints, allocation categories and validator policy.
+## Retired networks
 
-Private keys, mnemonics, keyrings, passwords, runtime state and validator
-backups must never be committed to this repository.
+[`xitcoin-testnet-1`](./xitcoin-testnet-1) is retained only for historical verification. It is not active and must not be used for new deployments or transactions.
+
+Private keys, mnemonics, keyrings, passwords, runtime state and validator backups must never be committed to this repository.
