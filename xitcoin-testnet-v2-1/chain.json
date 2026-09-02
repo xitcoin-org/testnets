@@ -50,10 +50,10 @@
   "allocations": {
     "sovereign_reserve_xtc": "386000000",
     "faucet_xtc": "50000000",
-    "unclassified_reserve_xtc": "20000000",
     "validator_initial_balance_total_xtc": "21000000",
     "validator_self_delegation_total_xtc": "20000000",
-    "validator_liquid_balance_total_xtc": "1000000"
+    "validator_liquid_balance_total_xtc": "1000000",
+    "validator_incentives_module_xtc": "20000000"
   },
   "bridge": {
     "route_configured": false,
