@@ -6,7 +6,7 @@ Canonical genesis and public configuration files for Xitcoin test networks.
 
 | Parameter | Value |
 | --- | --- |
-| Network | Xitcoin Testnet |
+| Network | Xitcoin Public Testnet |
 | Cosmos chain ID | `xitcoin-testnet-v2-1` |
 | EVM chain ID | `101089` (`0x18ae1`) |
 | Native symbol | `XTC` |
