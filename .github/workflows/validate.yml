@@ -50,6 +50,8 @@ jobs:
               assert digest == manifest["genesis"]["sha256"]
               assert genesis["chain_id"] == manifest["cosmos_chain_id"]
               assert genesis["genesis_time"] == manifest["genesis"]["genesis_time"]
+              if manifest["status"] == "active":
+                  assert manifest["name"] == "Xitcoin Public Testnet"
               assert manifest["native_currency"] == {
                   "name": "Xitcoin",
                   "symbol": "XTC",
