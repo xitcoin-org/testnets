@@ -1,5 +1,5 @@
 {
-  "name": "Xitcoin Testnet",
+  "name": "Xitcoin Public Testnet",
   "status": "active",
   "cosmos_chain_id": "xitcoin-testnet-v2-1",
   "evm_chain_id": 101089,
@@ -61,7 +61,7 @@
     "note": "No route configuration exists in genesis; the default paused=false value does not enable a bridge route."
   },
   "notes": [
-    "The public network name is Xitcoin Testnet.",
+    "The public network name is Xitcoin Public Testnet.",
     "This V2 manifest is the only active public testnet record.",
     "The four initial validators are Atlas, Borealis, Meridian and Zenith.",
     "Testnet assets have no monetary value.",
