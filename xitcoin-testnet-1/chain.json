@@ -11,18 +11,18 @@
     "base_denom": "axtc"
   },
   "rpc": [
-    "https://rpc-testnet.xitcoin.org"
+    "https://rpc-testnet.xitchain.com"
   ],
   "api": [
-    "https://api-testnet.xitcoin.org"
+    "https://api-testnet.xitchain.com"
   ],
   "explorers": [
-    "https://explorer-testnet.xitcoin.org",
-    "https://evm-explorer-testnet.xitcoin.org"
+    "https://explorer-testnet.xitchain.com",
+    "https://evm-explorer-testnet.xitchain.com"
   ],
   "faucets": [
     {
-      "url": "https://faucet-testnet.xitcoin.org",
+      "url": "https://faucet-testnet.xitchain.com",
       "amount_xtc": "10",
       "address_window_hours": 24,
       "ip_window_hours": 24,
